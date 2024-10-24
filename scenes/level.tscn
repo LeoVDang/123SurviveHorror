@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dajpevu023me3"]
+[gd_scene load_steps=7 format=3 uid="uid://dajpevu023me3"]
+
+[ext_resource type="PackedScene" uid="uid://bcmmjlp1xnrc2" path="res://Scenes/player.tscn" id="1_25rm8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vghck"]
 sky_top_color = Color(0.533333, 0.564706, 0.803922, 1)
@@ -62,3 +64,6 @@ shape = SubResource("BoxShape3D_utbj2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
 mesh = SubResource("BoxMesh_a7y2f")
+
+[node name="Player" parent="wall3" instance=ExtResource("1_25rm8")]
+transform = Transform3D(0.1, 0, 0, 0, 0.2, 0, 0, 0, 0.1, -0.771467, -0.244686, -0.833807)
