@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3p22j5q53x1t"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_q6ixc"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_acnfa"]
+[ext_resource type="Script" path="res://Scripts/flashlight.gd" id="3_jv0fa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qtpl0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kmiww"]
+radial_segments = 14
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_q6ixc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_qtpl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_kmiww")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574443, 0)
+script = ExtResource("2_acnfa")
+
+[node name="flashlight" type="SpotLight3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0142936, -0.47392)
+spot_range = 20.0
+spot_angle = 25.0
+script = ExtResource("3_jv0fa")
+
+[node name="Camera3D" type="Camera3D" parent="head"]
