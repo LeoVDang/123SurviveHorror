@@ -1,4 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dajpevu023me3"]
+[gd_scene load_steps=8 format=3 uid="uid://dajpevu023me3"]
+
+[ext_resource type="PackedScene" uid="uid://c3p22j5q53x1t" path="res://Scenes/player.tscn" id="1_25rm8"]
+[ext_resource type="PackedScene" uid="uid://cyc16bhb5b3io" path="res://Scenes/ui.tscn" id="1_rr8ix"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vghck"]
 sky_top_color = Color(0.533333, 0.564706, 0.803922, 1)
@@ -19,6 +22,8 @@ glow_enabled = true
 [sub_resource type="BoxMesh" id="BoxMesh_a7y2f"]
 
 [node name="level" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("1_rr8ix")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c6cqp")
@@ -62,3 +67,6 @@ shape = SubResource("BoxShape3D_utbj2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
 mesh = SubResource("BoxMesh_a7y2f")
+
+[node name="Player" parent="." instance=ExtResource("1_25rm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0582495, 1.57784, -0.0793695)
